@@ -1,0 +1,6 @@
+#Java compiled class file
+*.class
+
+#IntelliJ files and config
+*.iml
+
