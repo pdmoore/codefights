@@ -3,4 +3,5 @@
 
 #IntelliJ files and config
 *.iml
+*.xml
 
