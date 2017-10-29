@@ -44,6 +44,13 @@ public class almostIncreasingSequenceTest {
     }
 
     @Test
+    public void sequenceWithTwoAnomaliesIsNotIncreasing() {
+        int[] sequence = new int[] {1, 3, 2, 1}; // Test 1
+        boolean actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+    }
+
+    @Test
     public void sequenceWithMoreThanTwoOfSameValueIsNotIncreasing()
     {
         int[] sequence = new int[] {1, 1, 1, 2, 3}; // Test 6
