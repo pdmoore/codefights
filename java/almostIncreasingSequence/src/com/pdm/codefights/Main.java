@@ -9,6 +9,14 @@ public class Main {
     }
 
     public static boolean almostIncreasingSequence(int[] sequence) {
-        return true;
+        int sameNumberViolationCount = 0;
+
+        for (int i=0; i < sequence.length - 1; i++) {
+            if (sequence[i] == sequence[i+1]) {
+                sameNumberViolationCount++;
+            }
+        }
+
+        return (sameNumberViolationCount < 2);
     }
 }
