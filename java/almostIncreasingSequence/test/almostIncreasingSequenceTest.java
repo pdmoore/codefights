@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class almostIncreasingSequenceTest {
 
-    // 3 8 9 11 13
-
     @Test
     public void sequenceOfTwoElementsIsAlwaysIncreasing() {
         int[] sequence = new int[] { 1, 1 };    // Test 10
@@ -78,4 +76,25 @@ public class almostIncreasingSequenceTest {
         assertEquals(false, actual);
     }
 
+    @Test
+    public void sequenceWithManyNonAdjacentAnomalyIsNotIncreasing() {
+        int[] sequence = new int[] {1, 2, 1, 2}; // Test 3
+        boolean actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+
+        sequence = new int[] {1, 2, 3, 4, 5, 3, 5, 6}; // Test 8
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+
+        sequence = new int[] {40, 50, 60, 10, 20, 30}; // Test 9
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+    }
+
+    @Test
+    public void sequenceWithOneNonAdajecentAnomalyIsIncreasing() {
+        int[] sequence = new int[] {1, 2, 5, 3, 5}; // Test 11
+        boolean actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(true, actual);
+    }
 }
