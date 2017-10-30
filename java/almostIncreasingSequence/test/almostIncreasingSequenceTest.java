@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class almostIncreasingSequenceTest {
 
-    // Need to see that more than one test works
+    // 3 8 9 11 13
 
     @Test
     public void sequenceOfTwoElementsIsAlwaysIncreasing() {
@@ -30,6 +30,14 @@ public class almostIncreasingSequenceTest {
         boolean actual = Main.almostIncreasingSequence(sequence);
         assertEquals(true, actual);
 
+        sequence = new int[] {10, 1, 2, 3, 4, 5};  // Test 5
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(true, actual);
+
+        sequence = new int[] {0, -2, 5, 6};  // Test 7
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(true, actual);
+
         sequence = new int[] { 1, 2, 3, 4, 3, 6 };  // Test 14
         actual = Main.almostIncreasingSequence(sequence);
         assertEquals(true, actual);
@@ -44,9 +52,17 @@ public class almostIncreasingSequenceTest {
     }
 
     @Test
-    public void sequenceWithTwoAnomaliesIsNotIncreasing() {
+    public void sequenceWithTwoOrMoreAnomaliesIsNotIncreasing() {
         int[] sequence = new int[] {1, 3, 2, 1}; // Test 1
         boolean actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+
+        sequence = new int[] { 1, 4, 10, 4, 2 }; // Test 4
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
+
+        sequence = new int[] { 10, 1, 2, 3, 4, 5, 6, 1 }; // Test 13
+        actual = Main.almostIncreasingSequence(sequence);
         assertEquals(false, actual);
     }
 
