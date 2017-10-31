@@ -89,12 +89,18 @@ public class almostIncreasingSequenceTest {
         sequence = new int[] {40, 50, 60, 10, 20, 30}; // Test 9
         actual = Main.almostIncreasingSequence(sequence);
         assertEquals(false, actual);
+
+        sequence = new int[] {-4, 0, -2, 3, 4, 5, 8, 6, 10}; // Test 9
+        actual = Main.almostIncreasingSequence(sequence);
+        assertEquals(false, actual);
     }
 
     @Test
-    public void sequenceWithOneNonAdajecentAnomalyIsIncreasing() {
+    public void sequenceWithOneNonAdjacentAnomalyIsIncreasing() {
         int[] sequence = new int[] {1, 2, 5, 3, 5}; // Test 11
         boolean actual = Main.almostIncreasingSequence(sequence);
         assertEquals(true, actual);
     }
+
+    // xxx Need a speed test - <= 3000 ms
 }
