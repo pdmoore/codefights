@@ -1,6 +1,11 @@
 import com.pdm.codefights.Main;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+
+import static java.time.Duration.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 public class almostIncreasingSequenceTest {
 
@@ -102,5 +107,14 @@ public class almostIncreasingSequenceTest {
         assertEquals(true, actual);
     }
 
-    // xxx Need a speed test - <= 3000 ms
+    @Test
+    public void detectionOccursWithinTimeLimit() {
+        int[] sequence = new int[100000];
+        for (int i = 0; i < sequence.length - 1; i++) {
+            sequence[i] = i;
+        }
+        assertTimeout(Duration.ofMillis(3000), () -> {
+            Main.almostIncreasingSequence(sequence);
+        });
+    }
 }
