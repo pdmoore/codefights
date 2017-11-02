@@ -9,7 +9,7 @@ public class Main {
     }
 
     public static boolean almostIncreasingSequence(int[] sequence) {
-        int adjacentViolationCount = 0;               // RENAME TO ADJACENT VIOLATION
+        int adjacentViolationCount = 0;
         for (int j=0; j < sequence.length - 1; j++) {
             if (sequence[j] >= sequence[j+1]) {
                 adjacentViolationCount++;
@@ -25,5 +25,15 @@ public class Main {
 
         return (adjacentViolationCount < 2) &&
                (adjacentViolationCount + nonAdjacentViolationCount <= 2);
+    }
+
+    public static int matrixElementSum(int[][] matrix) {
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                sum += matrix[i][j];
+            }
+        }
+        return sum;
     }
 }
