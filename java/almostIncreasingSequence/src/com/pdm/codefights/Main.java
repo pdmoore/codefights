@@ -1,5 +1,8 @@
 package com.pdm.codefights;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     // Rename class and remove the Main method
@@ -28,10 +31,18 @@ public class Main {
     }
 
     public static int matrixElementSum(int[][] matrix) {
+        List<Integer> listOfHauntedRoomNumbers = new ArrayList<>();
+
         int sum = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                sum += matrix[i][j];
+                if (matrix[i][j] == 0) {
+                    listOfHauntedRoomNumbers.add(j);
+                } else {
+                    if (listOfHauntedRoomNumbers.contains(j) == false) {
+                        sum += matrix[i][j];
+                    }
+                }
             }
         }
         return sum;
