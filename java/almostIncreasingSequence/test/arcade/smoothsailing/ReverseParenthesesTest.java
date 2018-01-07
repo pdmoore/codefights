@@ -31,9 +31,8 @@ public class ReverseParenthesesTest {
         // need logic for nested (feels like recursion) -- "Code(Cha(lle)nge)" ==> "CodeegnlleahC"
         // vs consecutive paren sets -- "abc(cba)ab(bac)c" ==> "abcabcabcabc"
 
-        // Also need to get this in git -- there is a codefights repo but doesn't have any of this stuff in it
-
-        Assertions.fail("STOPPED HERE");
+        String input = "Code(Cha(lle)nge)";
+        assertEquals("CodeegnlleahC", reverseParentheses(input));
     }
 
     private String reverseParentheses(String s) {
@@ -46,7 +45,13 @@ public class ReverseParenthesesTest {
         String afterParen  = s.substring(lastParenIndex + 1);
 
         String stringBetweenParens = s.substring(firstParenIndex + 1, lastParenIndex);
-        String reversed = new StringBuffer(stringBetweenParens).reverse().toString();
+        String reversed = "";
+        if (stringBetweenParens.indexOf('(') >= 0) {
+            reversed = reverseParentheses(stringBetweenParens);
+            reversed = new StringBuffer(reversed).reverse().toString();
+        } else {
+            reversed = new StringBuffer(stringBetweenParens).reverse().toString();
+        }
 
         return beforeParen + reversed + afterParen;
     }
