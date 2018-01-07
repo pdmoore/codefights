@@ -11,7 +11,6 @@ public class ReverseParenthesesTest {
         String input = "Where are the parentheses?";
         String expected = input;
         assertEquals(expected, reverseParentheses(input));
-
     }
 
     @Test
@@ -28,24 +27,34 @@ public class ReverseParenthesesTest {
 
     @Test
     public void NestedParens() {
-        // need logic for nested (feels like recursion) -- "Code(Cha(lle)nge)" ==> "CodeegnlleahC"
-        // vs consecutive paren sets -- "abc(cba)ab(bac)c" ==> "abcabcabcabc"
-
         String input = "Code(Cha(lle)nge)";
         assertEquals("CodeegnlleahC", reverseParentheses(input));
     }
 
+    @Test
+    public void ConsecutiveParens() {
+        String input = "abc(cba)ab(bac)c";
+        assertEquals("abcabcabcabc", reverseParentheses(input));
+    }
+
     private String reverseParentheses(String s) {
-        int firstParenIndex = s.indexOf('(');
-        if (firstParenIndex == -1) return s;
+        int firstOpenParenIndex = s.indexOf('(');
+        if (firstOpenParenIndex == -1) return s;
 
-        int lastParenIndex = s.lastIndexOf(')');
+        int lastCloseParenIndex = s.lastIndexOf(')');
+        int nextOpenParenIndex  = s.indexOf('(', firstOpenParenIndex + 1);
+        int nextCloseParenIndex = s.indexOf(')', firstOpenParenIndex);
+        if (lastCloseParenIndex != nextCloseParenIndex && nextCloseParenIndex < nextOpenParenIndex) {
+            String simpleReverseString = s.substring(firstOpenParenIndex + 1, nextCloseParenIndex);
+            String simpleReversed = new StringBuffer(simpleReverseString).reverse().toString();
+            return reverseParentheses(s.substring(0, firstOpenParenIndex) + simpleReversed + s.substring(nextCloseParenIndex + 1));
+        }
 
-        String beforeParen = s.substring(0, firstParenIndex);
-        String afterParen  = s.substring(lastParenIndex + 1);
+        String beforeParen = s.substring(0, firstOpenParenIndex);
+        String afterParen  = s.substring(lastCloseParenIndex + 1);
 
-        String stringBetweenParens = s.substring(firstParenIndex + 1, lastParenIndex);
-        String reversed = "";
+        String stringBetweenParens = s.substring(firstOpenParenIndex + 1, lastCloseParenIndex);
+        String reversed;
         if (stringBetweenParens.indexOf('(') >= 0) {
             reversed = reverseParentheses(stringBetweenParens);
             reversed = new StringBuffer(reversed).reverse().toString();
