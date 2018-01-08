@@ -1,3 +1,5 @@
+package arcade.smoothsailing;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class allLongestStrings {
+public class allLongestStringsTest {
 
     private String[] allLongestStrings(String[] inputArray) {
 
