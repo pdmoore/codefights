@@ -20,6 +20,14 @@ public class AlternatingSumsTest {
         assertArrayEquals(expected, alternatingSums(input));
     }
 
+    @Test
+    void multipleElements() {
+        int[] input = new int[] {50, 60, 60, 45, 70};
+        int[] expected = new int[] {180, 105};
+        assertArrayEquals(expected, alternatingSums(input));
+    }
+
+
     private int[] alternatingSums(int[] input) {
         int sum1 = 0;
         int sum2 = 0;
