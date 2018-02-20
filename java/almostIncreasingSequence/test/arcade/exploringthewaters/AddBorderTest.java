@@ -22,7 +22,7 @@ public class AddBorderTest {
         String[] result = new String[input.length + 2];
         result[0] = addOuterBorder(input[0].length());
         result[1] = "*" + input[0] + "*";
-        result[2] = "***";
+        result[2] = addOuterBorder(input[0].length());
         return result;
     }
 
