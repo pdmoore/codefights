@@ -15,14 +15,25 @@ public class AddBorderTest {
         String[] expected = new String[] { "***", "*a*", "***" };
 
         assertArrayEquals(expected, addBorder(input));
-
     }
 
-    private String[] addBorder(String[] input) {
-        String[] result = new String[input.length + 2];
-        result[0] = addOuterBorder(input[0].length());
-        result[1] = "*" + input[0] + "*";
-        result[2] = addOuterBorder(input[0].length());
+    @Test
+    public void BorderAroundTwoLines() {
+        String[] input = new String[] { "abc", "ded" };
+        String[] expected = new String[] { "*****", "*abc*", "*ded*", "*****" };
+
+        assertArrayEquals(expected, addBorder(input), "Need to loop on input on line 33");
+    }
+
+    private String[] addBorder(String[] picture) {
+        String[] result = new String[picture.length + 2];
+        result[0] = addOuterBorder(picture[0].length());
+        int i = 0;
+        while ( i < picture.length) {
+            result[i + 1] = "*" + picture[i] + "*";
+            ++i;
+        }
+        result[i + 1] = addOuterBorder(picture[0].length());
         return result;
     }
 
