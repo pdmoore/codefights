@@ -23,8 +23,10 @@ public class ArrayChangeTest {
         int moves = 0;
         int previousValue = inputArray[0];
 
-        if (inputArray[1] <= inputArray[0]) {
-            moves += inputArray[1] - inputArray[0] + 1;
+        for (int i = 1; i < inputArray.length; i++) {
+            if (inputArray[i] <= inputArray[i - 1]) {
+                moves += inputArray[i] - inputArray[i - 1] + 1;
+            }
         }
 
         return moves;
