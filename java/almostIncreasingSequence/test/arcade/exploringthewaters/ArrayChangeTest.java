@@ -31,6 +31,11 @@ public class ArrayChangeTest {
         assertEquals(3, arrayChange(inputArray));
     }
 
+    @Test
+    public void SequenceHasTwoElementsThatIncrease_OneIsNegativeToStartWith() {
+        int[] inputArray = new int[] { -1000, 0, -2, 0 };
+        assertEquals(5, arrayChange(inputArray));
+    }
 
     private int arrayChange(int[] inputArray) {
         int moves = 0;
