@@ -20,8 +20,14 @@ public class ArrayChangeTest {
     }
 
     @Test
-    public void SequenceOneElementNeedsToIncreaseALot_OneMove() {
+    public void SequenceHasNegativeValueElementThatNeedsToIncrease() {
         int[] inputArray = new int[] { 0, -2 };
+        assertEquals(3, arrayChange(inputArray));
+    }
+
+    @Test
+    public void SequenceHasTwoElementsThatIncrease() {
+        int[] inputArray = new int[] { 1, 1, 1 };
         assertEquals(3, arrayChange(inputArray));
     }
 
@@ -33,6 +39,7 @@ public class ArrayChangeTest {
         for (int i = 1; i < inputArray.length; i++) {
             if (inputArray[i] <= inputArray[i - 1]) {
                 moves += Math.abs(inputArray[i] - inputArray[i - 1]) + 1;
+                inputArray[i] = inputArray[i - 1] + 1;
             }
         }
 
