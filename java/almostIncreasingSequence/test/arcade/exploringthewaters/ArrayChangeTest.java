@@ -51,7 +51,6 @@ public class ArrayChangeTest {
 
     private int arrayChange(int[] inputArray) {
         int moves = 0;
-        int previousValue = inputArray[0];
 
         for (int i = 1; i < inputArray.length; i++) {
             if (inputArray[i] <= inputArray[i - 1]) {
