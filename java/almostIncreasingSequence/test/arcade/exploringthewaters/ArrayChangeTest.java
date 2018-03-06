@@ -37,6 +37,12 @@ public class ArrayChangeTest {
         assertEquals(5, arrayChange(inputArray));
     }
 
+    @Test
+    public void SequenceHasTwoElementsThatIncrease_LargeDifferenceForFinalElement() {
+        int[] inputArray = new int[] { 2, 1, 10, 1 };
+        assertEquals(12, arrayChange(inputArray));
+    }
+
     private int arrayChange(int[] inputArray) {
         int moves = 0;
         int previousValue = inputArray[0];
