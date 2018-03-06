@@ -19,13 +19,20 @@ public class ArrayChangeTest {
         assertEquals(1, arrayChange(inputArray));
     }
 
+    @Test
+    public void SequenceOneElementNeedsToIncreaseALot_OneMove() {
+        int[] inputArray = new int[] { 0, -2 };
+        assertEquals(3, arrayChange(inputArray));
+    }
+
+
     private int arrayChange(int[] inputArray) {
         int moves = 0;
         int previousValue = inputArray[0];
 
         for (int i = 1; i < inputArray.length; i++) {
             if (inputArray[i] <= inputArray[i - 1]) {
-                moves += inputArray[i] - inputArray[i - 1] + 1;
+                moves += Math.abs(inputArray[i] - inputArray[i - 1]) + 1;
             }
         }
 
