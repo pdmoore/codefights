@@ -43,6 +43,12 @@ public class ArrayChangeTest {
         assertEquals(12, arrayChange(inputArray));
     }
 
+    @Test
+    public void SequenceHasManyElementsThatIncrease() {
+        int[] inputArray = new int[] { 2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15 };
+        assertEquals(13, arrayChange(inputArray));
+    }
+
     private int arrayChange(int[] inputArray) {
         int moves = 0;
         int previousValue = inputArray[0];
