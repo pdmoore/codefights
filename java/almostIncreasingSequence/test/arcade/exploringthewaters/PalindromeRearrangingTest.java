@@ -52,6 +52,12 @@ public class PalindromeRearrangingTest {
         assertFalse(palindromeRearranging(input));
     }
 
+    @Test
+    public void AnyNumberOfTheSameCharacter_IsAPalindrome() {
+        String input = "aaa";
+        assertTrue(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
@@ -65,6 +71,8 @@ public class PalindromeRearrangingTest {
             }
             letterCount.put(key, countOfThisLetter);
         }
+
+        if (letterCount.size() == 1) return true;
 
         int numberOfSingleCharacters = 0;
         int numberOfOddCharacters = 0;
