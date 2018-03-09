@@ -28,6 +28,12 @@ public class PalindromeRearrangingTest {
         assertFalse(palindromeRearranging(input));
     }
 
+    @Test
+    public void ManyOfSameLetterButTwoSingleLetters_IsNotAPalindrome() {
+        String input = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc";
+        assertFalse(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
