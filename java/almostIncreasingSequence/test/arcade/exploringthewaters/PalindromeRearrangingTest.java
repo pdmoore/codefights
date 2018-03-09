@@ -38,6 +38,8 @@ public class PalindromeRearrangingTest {
     public void ManyDuplcatedLettersWithOneSingleLetter_IsAPalindrome() {
         String input = "abbcabb";
         assertTrue(palindromeRearranging(input));
+
+        assertTrue(palindromeRearranging("abbcabb"));
     }
 
     @Test
