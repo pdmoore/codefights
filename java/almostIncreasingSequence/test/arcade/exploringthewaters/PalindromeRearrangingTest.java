@@ -34,13 +34,12 @@ public class PalindromeRearrangingTest {
         Map<Character, Integer> letterCount = new HashMap<>();
         for (int i = 0; i < inputString.length(); i++) {
             char key = inputString.charAt(i);
+            int countOfThisLetter = 1;
             if (letterCount.containsKey(key)) {
-                int countOfThisLetter = letterCount.get(key);
+                countOfThisLetter = letterCount.get(key);
                 countOfThisLetter++;
-                letterCount.put(key, countOfThisLetter);
-            } else {
-                letterCount.put(key, 1);
             }
+            letterCount.put(key, countOfThisLetter);
         }
 
         int numbereOfSingleCharacters = 0;
