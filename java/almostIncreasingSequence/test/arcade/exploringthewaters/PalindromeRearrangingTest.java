@@ -46,6 +46,12 @@ public class PalindromeRearrangingTest {
         assertTrue(palindromeRearranging(input));
     }
 
+    @Test
+    public void oneSingleLetter_OddNumberOfOtherLetter_IsNotAPalindrome() {
+        String input = "abaa";
+        assertFalse(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
