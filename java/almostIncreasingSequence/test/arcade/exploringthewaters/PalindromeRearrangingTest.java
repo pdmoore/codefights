@@ -34,6 +34,12 @@ public class PalindromeRearrangingTest {
         assertFalse(palindromeRearranging(input));
     }
 
+    @Test
+    public void ManyDuplcatedLettersWithOneSingleLetter_IsAPalindrome() {
+        String input = "abbcabb";
+        assertTrue(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
