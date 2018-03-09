@@ -60,6 +60,11 @@ public class PalindromeRearrangingTest {
         assertTrue(palindromeRearranging(input));
     }
 
+    @Test
+    public void AnyNumberOfEvenSameCharacters_IsAPalindrome() {
+        assertTrue(palindromeRearranging("zyyzzzzz"));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
