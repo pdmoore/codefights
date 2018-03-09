@@ -66,13 +66,17 @@ public class PalindromeRearrangingTest {
             letterCount.put(key, countOfThisLetter);
         }
 
-        int numbereOfSingleCharacters = 0;
+        int numberOfSingleCharacters = 0;
+        int numberOfOddCharacters = 0;
         for (Character letter :
                 letterCount.keySet()) {
             if (letterCount.get(letter) == 1) {
-                numbereOfSingleCharacters++;
+                numberOfSingleCharacters++;
+            } else if (letterCount.get(letter) % 2 != 0) {
+                numberOfOddCharacters++;
             }
+
         }
-        return (numbereOfSingleCharacters <= 1);
+        return (numberOfSingleCharacters <= 1) && (numberOfOddCharacters < 1);
     }
 }
