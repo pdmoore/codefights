@@ -12,9 +12,13 @@ public class PalindromeRearrangingTest {
         assertTrue(palindromeRearranging(inputString));
     }
 
+    @Test
+    public void ThreeLetterStringWithTwoOfSameLetter_IsAPalindrome() {
+        String input = "zaa";
+        assertTrue(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         return true;
     }
-
-
 }
