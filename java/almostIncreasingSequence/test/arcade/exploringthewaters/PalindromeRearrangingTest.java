@@ -40,6 +40,12 @@ public class PalindromeRearrangingTest {
         assertTrue(palindromeRearranging(input));
     }
 
+    @Test
+    public void NoSingleLetters_MustBeAPalindrome() {
+        String input = "aabb";
+        assertTrue(palindromeRearranging(input));
+    }
+
     private boolean palindromeRearranging(String inputString) {
         if (inputString.length() == 1) return true;
 
