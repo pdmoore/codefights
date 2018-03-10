@@ -82,18 +82,14 @@ public class PalindromeRearrangingTest {
 
         if (letterCount.size() == 1) return true;
 
-        int numberOfSingleCharacters = 0;
         int numberOfOddCharacters = 0;
         for (Character letter :
                 letterCount.keySet()) {
-//            if (letterCount.get(letter) == 1) {
-//                numberOfSingleCharacters++;
-//            } else
                 if (letterCount.get(letter) % 2 != 0) {
                 numberOfOddCharacters++;
             }
 
         }
-        return (numberOfSingleCharacters <= 1) && (numberOfOddCharacters <= 1);
+        return (numberOfOddCharacters <= 1);
     }
 }
