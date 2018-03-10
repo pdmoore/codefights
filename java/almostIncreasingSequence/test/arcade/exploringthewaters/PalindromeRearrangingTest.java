@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class PalindromeRearrangingTest {
 
@@ -85,13 +86,14 @@ public class PalindromeRearrangingTest {
         int numberOfOddCharacters = 0;
         for (Character letter :
                 letterCount.keySet()) {
-            if (letterCount.get(letter) == 1) {
-                numberOfSingleCharacters++;
-            } else if (letterCount.get(letter) % 2 != 0) {
+//            if (letterCount.get(letter) == 1) {
+//                numberOfSingleCharacters++;
+//            } else
+                if (letterCount.get(letter) % 2 != 0) {
                 numberOfOddCharacters++;
             }
 
         }
-        return (numberOfSingleCharacters <= 1) && (numberOfOddCharacters < 1);
+        return (numberOfSingleCharacters <= 1) && (numberOfOddCharacters <= 1);
     }
 }
