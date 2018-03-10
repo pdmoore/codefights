@@ -80,8 +80,6 @@ public class PalindromeRearrangingTest {
             letterCount.put(key, countOfThisLetter);
         }
 
-        if (letterCount.size() == 1) return true;
-
         int numberOfOddCharacters = 0;
         for (Character letter :
                 letterCount.keySet()) {
