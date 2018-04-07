@@ -8,8 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AreEquallyStrongTest {
 
     @Test
-    public void BothArmsAreSame() {
+    public void BothArmsCombosAreSame() {
         assertTrue(areEquallyStrong(10, 15, 10, 15));
+    }
+
+    @Test
+    public void ArmsAreSwitched() {
+        assertTrue(areEquallyStrong(10, 15, 15, 10));
     }
 
     @Test
