@@ -7,7 +7,6 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 public class PalindromeRearrangingTest {
 
@@ -88,6 +87,6 @@ public class PalindromeRearrangingTest {
             }
 
         }
-        return (numberOfOddCharacters <= 1);
+        return numberOfOddCharacters <= 1;
     }
 }
