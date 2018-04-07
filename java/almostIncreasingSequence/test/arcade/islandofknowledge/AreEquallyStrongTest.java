@@ -22,9 +22,14 @@ public class AreEquallyStrongTest {
         assertFalse(areEquallyStrong(15, 10, 15, 9));
     }
 
+    @Test
+    public void TotalsAreSameButArmsAreMismatched() {
+        assertFalse(areEquallyStrong(10, 15, 5, 20));
+    }
 
 
     boolean areEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight) {
-        return yourLeft + yourRight == friendsLeft + friendsRight;
+        return (Math.min(yourLeft, yourRight) == Math.min(friendsLeft, friendsRight) &&
+                (Math.max(yourLeft, yourRight) == Math.max(friendsLeft, friendsRight)));
     }
 }
