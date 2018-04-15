@@ -8,11 +8,20 @@ public class ArrayMaximalAdjacentDifferenceTest {
 
     @Test
     public void AllElementsTheSame_DifferenceIsZero() {
-        int[] inputArray = new int[] { 1, 1, 1, 1 };
-        assertEquals(0, arrayMaximalAdjacentDifference(inputArray));
+        assertEquals(0, arrayMaximalAdjacentDifference(new int[] { 1, 1, 1, 1 }));
+    }
+
+    @Test
+    public void AllPositiveElements() {
+        assertEquals(3, arrayMaximalAdjacentDifference(new int[] { 2, 4, 1, 0}));
     }
 
     private int arrayMaximalAdjacentDifference(int[] inputArray) {
-        return 0;
+        int maxDifference = -1;
+        for (int i = 1; i < inputArray.length; i++) {
+            int thisDifference = Math.abs(inputArray[i] - inputArray[i - 1]);
+            maxDifference = Math.max(maxDifference, thisDifference);
+        }
+        return maxDifference;
     }
 }
