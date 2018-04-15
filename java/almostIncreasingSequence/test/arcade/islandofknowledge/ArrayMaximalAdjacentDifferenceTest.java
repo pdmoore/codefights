@@ -16,6 +16,12 @@ public class ArrayMaximalAdjacentDifferenceTest {
         assertEquals(3, arrayMaximalAdjacentDifference(new int[] { 2, 4, 1, 0}));
     }
 
+    @Test
+    public void MixOfPositiveAndNegativeElements() {
+        assertEquals(7, arrayMaximalAdjacentDifference(new int[]
+                {-1, 4, 10, 3, -2}));
+    }
+
     private int arrayMaximalAdjacentDifference(int[] inputArray) {
         int maxDifference = -1;
         for (int i = 1; i < inputArray.length; i++) {
