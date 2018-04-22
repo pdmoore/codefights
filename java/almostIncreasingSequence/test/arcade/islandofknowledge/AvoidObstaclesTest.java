@@ -29,10 +29,15 @@ public class AvoidObstaclesTest {
     }
 
     @Test
-    @Disabled
     public void ArrayIsSorted_ObstaclesAreAdjacent_HighEndOfRange_TwoObstacles() {
         int[] inputArray = new int[] { 9, 10 };
         assertEquals(4, avoidObstacles(inputArray));
+    }
+
+    @Test
+    public void ManyObstacles_SingleJump() {
+        int[] inputArray = new int[] {1, 4, 10, 6, 2};
+        assertEquals(7, avoidObstacles(inputArray));
     }
 
     private int avoidObstacles(int[] inputArray) {
