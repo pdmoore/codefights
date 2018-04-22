@@ -36,6 +36,7 @@ public class IsIPV4AddressTest {
     @Test
     public void InvalidAddress_TooManyElements() {
         assertFalse(isIPv4Address("1.23.256.255."), "Should be exactly 4 elements");
+        assertFalse(isIPv4Address("1.23.256.."), "Should be exactly 4 elements");
     }
 
     private boolean isIPv4Address(String inputString) {
