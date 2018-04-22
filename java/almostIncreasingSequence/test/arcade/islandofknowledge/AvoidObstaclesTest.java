@@ -23,6 +23,12 @@ public class AvoidObstaclesTest {
     }
 
     @Test
+    public void ObstaclesAreNotAdjacent() {
+        int[] inputArray = new int[] {5, 3, 6, 7, 9};
+        assertEquals(4, avoidObstacles(inputArray));
+    }
+
+    @Test
     @Disabled
     public void ArrayIsSorted_ObstaclesAreAdjacent_HighEndOfRange_TwoObstacles() {
         int[] inputArray = new int[] { 9, 10 };
@@ -43,9 +49,10 @@ public class AvoidObstaclesTest {
     }
 
     private boolean anyObstacles(List<Integer> obstacles, int jumpLength) {
-        while (jumpLength <= 10) {
-            if (obstacles.contains(jumpLength)) return true;
-            jumpLength += jumpLength;
+        int currentPosition = jumpLength;
+        while (currentPosition <= 10) {
+            if (obstacles.contains(currentPosition)) return true;
+            currentPosition += jumpLength;
         }
         return false;
     }
