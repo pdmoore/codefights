@@ -40,11 +40,17 @@ public class AvoidObstaclesTest {
         assertEquals(7, avoidObstacles(inputArray));
     }
 
+    @Test
+    public void InputRangeIsUpTo40() {
+        int[] inputArray = new int[] {1, 2,  5, 7, 13, 16, 20, 22, 23, 24, 25, 30, 33, 35, 39, 40 };
+        assertEquals(9, avoidObstacles(inputArray));
+    }
+
     private int avoidObstacles(int[] inputArray) {
         List<Integer> obstacles = Arrays.stream(inputArray).boxed().collect(Collectors.toList());
 
         int jumpLength = 2;
-        while (jumpLength <= 10) {
+        while (jumpLength <= 40) {
             if (!anyObstacles(obstacles, jumpLength)) return jumpLength;
             jumpLength++;
         }
@@ -53,7 +59,7 @@ public class AvoidObstaclesTest {
 
     private boolean anyObstacles(List<Integer> obstacles, int jumpLength) {
         int currentPosition = jumpLength;
-        while (currentPosition <= 10) {
+        while (currentPosition <= 40) {
             if (obstacles.contains(currentPosition)) return true;
             currentPosition += jumpLength;
         }
