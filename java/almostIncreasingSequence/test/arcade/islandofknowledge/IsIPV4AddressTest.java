@@ -27,8 +27,16 @@ public class IsIPV4AddressTest {
         assertFalse(isIPv4Address("1.1.1.1a"), "Elements should all be Integers");
     }
 
+    @Test
+    public void InvalidAddress_NotEnoughElements() {
+        assertFalse(isIPv4Address("1"), "Should be exactly 4 elements");
+    }
+
     private boolean isIPv4Address(String inputString) {
         String[] elements = inputString.split("\\.");
+
+        if (elements.length < 4) return false;
+
         for (String element : elements) {
             if (element.isEmpty()) return false;
             try {
