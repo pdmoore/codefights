@@ -10,6 +10,7 @@ public class IsIPV4AddressTest {
     @Test
     public void ValidAddress() {
         assertTrue(isIPv4Address("172.16.254.1"));
+        assertTrue(isIPv4Address("0.254.255.0"));
     }
 
     @Test
